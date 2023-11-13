@@ -9,7 +9,7 @@ import { supabase } from "../utils/supabase";
 const RideHistory = ({ destination, date, price }) => {
   return (
     <div className="w-full border-b-[1px] mb-3 py-3 border-neutral-300 flex items-center justify-between">
-      <MdLocalTaxi size={30} className="text-green-400" />
+      <MdLocalTaxi size={30} className="text-blue-400" />
       <div>
         <h4 className="text-xl font-semibold">{destination}</h4>
         <span className=" text-neutral-500 text-lg">{date}</span>

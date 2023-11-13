@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { MdLocalTaxi } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import Spinner from "../components/Spinner";
 import { setSession, setUser } from "../slices/authSlice";
 import { supabase } from "../utils/supabase";
-import Spinner from "../components/Spinner";
 
 const LoginScreen = () => {
   const navigate = useNavigate();
@@ -40,7 +40,7 @@ const LoginScreen = () => {
   return (
     <div className="flex justify-center flex-col items-center h-screen">
       <div className="flex flex-col justify-center items-center gap-y-4 flex-1">
-        <MdLocalTaxi size={80} className="text-green-500" />
+        <MdLocalTaxi size={80} className="text-blue-500" />
       </div>
       <div className="flex flex-col w-full px-5">
         <h3 className="text-2xl font-semibold text-neutral-800 mb-2">
@@ -62,7 +62,7 @@ const LoginScreen = () => {
               onChange={(e) =>
                 setForm((form) => ({ ...form, email: e.target.value }))
               }
-              className="w-full mb-3 border-2 border-neutral-500 px-4 py-[10px] rounded-md focus:border-green-500 outline-none text-lg"
+              className="w-full mb-3 border-2 border-neutral-500 px-4 py-[10px] rounded-md focus:border-blue-500 outline-none text-lg"
               type="email"
               placeholder="Email"
               id="email"
@@ -79,7 +79,7 @@ const LoginScreen = () => {
               onChange={(e) =>
                 setForm((form) => ({ ...form, password: e.target.value }))
               }
-              className="w-full border-2 border-neutral-500 px-4 py-[10px] rounded-md focus:border-green-500 outline-none text-lg"
+              className="w-full border-2 border-neutral-500 px-4 py-[10px] rounded-md focus:border-blue-500 outline-none text-lg"
               type="password"
               placeholder="Password"
               id="password"
@@ -87,7 +87,7 @@ const LoginScreen = () => {
           </div>
           <button
             type="submit"
-            className="w-full mt-5 bg-green-500 px-6 py-3 mb-3 rounded-md text-white font-semibold text-lg"
+            className="w-full mt-5 bg-blue-500 px-6 py-3 mb-3 rounded-md text-white font-semibold text-lg"
           >
             {loading ? <Spinner /> : "Login"}
           </button>

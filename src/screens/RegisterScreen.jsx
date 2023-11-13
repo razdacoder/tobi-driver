@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { MdLocalTaxi } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
-import { supabase } from "../utils/supabase";
-import Spinner from "../components/Spinner";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import Spinner from "../components/Spinner";
 import { setUser } from "../slices/authSlice";
+import { supabase } from "../utils/supabase";
 
 const RegisterScreen = () => {
   const dispatch = useDispatch();
@@ -12,6 +12,8 @@ const RegisterScreen = () => {
   const [form, setForm] = useState({
     name: "",
     email: "",
+    phone_number: "",
+    driver_plate: "",
     password: "",
   });
   const [loading, setLoading] = useState(false);
@@ -27,6 +29,8 @@ const RegisterScreen = () => {
         data: {
           full_name: form.name,
           user_type: "driver",
+          phone_number: form.phone_number,
+          driver_plate: form.driver_plate,
         },
       },
     });
@@ -46,9 +50,9 @@ const RegisterScreen = () => {
   };
   return (
     <div className="flex justify-center flex-col items-center h-screen">
-      <div className="flex flex-col justify-center items-center gap-y-4 flex-1">
-        <MdLocalTaxi size={80} className="text-green-500" />
-      </div>
+      {/* <div className="flex flex-col justify-center items-center gap-y-4 flex-1">
+        <MdLocalTaxi size={80} className="text-blue-500" />
+      </div> */}
       <div className="flex flex-col w-full px-5">
         <h3 className="text-2xl font-semibold text-neutral-800 mb-2">
           Welcome
@@ -69,7 +73,7 @@ const RegisterScreen = () => {
               onChange={(e) =>
                 setForm((form) => ({ ...form, name: e.target.value }))
               }
-              className="w-full border-2 border-neutral-500 px-4 py-[10px] rounded-md focus:border-green-500 outline-none text-lg"
+              className="w-full border-2 border-neutral-500 px-4 py-[10px] rounded-md focus:border-blue-500 outline-none text-lg"
               type="text"
               placeholder="Name"
               id="fullname"
@@ -86,10 +90,44 @@ const RegisterScreen = () => {
               onChange={(e) =>
                 setForm((form) => ({ ...form, email: e.target.value }))
               }
-              className="w-full mb-3 border-2 border-neutral-500 px-4 py-[10px] rounded-md focus:border-green-500 outline-none text-lg"
+              className="w-full mb-3 border-2 border-neutral-500 px-4 py-[10px] rounded-md focus:border-blue-500 outline-none text-lg"
               type="email"
               placeholder="Email"
               id="email"
+            />
+          </div>
+          <div className="flex mb-3 flex-col gap-y-1">
+            <label
+              htmlFor="phone"
+              className="text-lg font-medium text-neutral-500"
+            >
+              Phone Number
+            </label>
+            <input
+              onChange={(e) =>
+                setForm((form) => ({ ...form, phone_number: e.target.value }))
+              }
+              className="w-full mb-3 border-2 border-neutral-500 px-4 py-[10px] rounded-md focus:border-blue-500 outline-none text-lg"
+              type="text"
+              placeholder="Phone Number"
+              id="phone"
+            />
+          </div>
+          <div className="flex mb-3 flex-col gap-y-1">
+            <label
+              htmlFor="plate"
+              className="text-lg font-medium text-neutral-500"
+            >
+              Plate Number
+            </label>
+            <input
+              onChange={(e) =>
+                setForm((form) => ({ ...form, driver_plate: e.target.value }))
+              }
+              className="w-full mb-3 border-2 border-neutral-500 px-4 py-[10px] rounded-md focus:border-blue-500 outline-none text-lg"
+              type="text"
+              placeholder="Plate Number"
+              id="plate"
             />
           </div>
           <div className="flex mb-3 flex-col gap-y-2">
@@ -103,13 +141,13 @@ const RegisterScreen = () => {
               onChange={(e) =>
                 setForm((form) => ({ ...form, password: e.target.value }))
               }
-              className="w-full border-2 border-neutral-500 px-4 py-[10px] rounded-md focus:border-green-500 outline-none text-lg"
+              className="w-full border-2 border-neutral-500 px-4 py-[10px] rounded-md focus:border-blue-500 outline-none text-lg"
               type="password"
               placeholder="Password"
               id="password"
             />
           </div>
-          <button className="w-full mt-5 bg-green-500 px-6 py-3 mb-3 rounded-md text-white font-semibold text-lg">
+          <button className="w-full mt-5 bg-blue-500 px-6 py-3 mb-3 rounded-md text-white font-semibold text-lg">
             {loading ? <Spinner /> : "Register"}
           </button>
           <div className="flex justify-center items-center">

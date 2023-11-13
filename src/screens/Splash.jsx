@@ -15,8 +15,8 @@ const Splash = () => {
   }, []);
   return (
     <div className="flex justify-center flex-col items-center h-full">
-      <MdLocalTaxi size={80} className="text-green-500" />
-      <h3 className="text-3xl font-bold text-green-500">Polyride Driver</h3>
+      <MdLocalTaxi size={80} className="text-blue-500" />
+      <h3 className="text-3xl font-bold text-blue-500">Polyride Driver</h3>
     </div>
   );
 };
