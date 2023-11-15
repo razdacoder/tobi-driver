@@ -17,10 +17,10 @@ const RequestCard = ({
   acceptCallback,
 }) => {
   return (
-    <div className="absolute z-50 h-screen top-0 left-0 w-full bg-neutral-900 opacity-95 flex justify-center items-center">
-      <div className="w-[90%] h-[40%] bg-white px-5 py-5">
+    <div className="absolute z-50 h-screen top-0 left-0 w-full bg-neutral-900 opacity-95 flex justify-center items-end">
+      <div className="w-[90%] h-[45%] bg-white px-5 py-5 rounded-sm">
         <h4 className="text-center text-xl font-semibold">New Ride Request</h4>
-        <div className="flex flex-col justify-center items-center mt-10">
+        <div className="flex flex-col justify-center items-center mt-5">
           <AiOutlineUser size={40} />
           <h5 className="text-xl font-semibold my-3">{riderName}</h5>
           <p className="text-lg font-semibold">Drop off: {destination}</p>
@@ -36,7 +36,7 @@ const RequestCard = ({
           </button>
           <button
             onClick={acceptCallback}
-            className="bg-blue-500 w-1/2 text-white py-3 px-8 text-lg rounded-lg"
+            className="bg-green-500 w-1/2 text-white py-3 px-8 text-lg rounded-lg"
           >
             Accept
           </button>
@@ -285,7 +285,7 @@ const Home = () => {
         </button>
         <h4
           className={`text-xl font-semibold ${
-            user.is_online ? "text-blue-600" : "text-gray-400"
+            user.is_online ? "text-green-600" : "text-gray-400"
           }`}
         >
           {user.is_online ? "Online" : "Offline"}
@@ -298,7 +298,7 @@ const Home = () => {
             onChange={onChange}
             className="sr-only peer"
           />
-          <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+          <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none dark:peer-focus:ring-green-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"></div>
         </label>
       </div>
 
@@ -309,7 +309,7 @@ const Home = () => {
         <button
           disabled={currentRide === null || loading}
           onClick={handleClick}
-          className="w-full bg-blue-800 py-4 mt-4 rounded-md text-white text-lg disabled:bg-neutral-400"
+          className="w-full bg-green-800 py-4 mt-4 rounded-md text-white text-lg disabled:bg-neutral-400"
         >
           {user.is_online && currentRide === null && "Waiting For Request..."}
           {user.is_online === false &&
